@@ -15,4 +15,5 @@ app.post('/users', (request, response) => {
 })
 
 // localhost:3333
+// Aula 2: https://www.youtube.com/watch?v=xK8d5tLptHY (37:17)
 app.listen(3333);
