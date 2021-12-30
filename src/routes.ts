@@ -1,46 +1,16 @@
-import express from 'express';
-import db from './database/connection';
+import express, { response } from 'express';
+import ReservationsController from './controllers/ReservationsController';
+import VehiclesConroller from './controllers/VehiclesController';
 
 const routes = express.Router();
 
 //CREATE VEHICLE
-routes.post('/vehicles', async (request, response) => {
-
-    const {
-        name,
-        avatar,
-        bio
-    } = request.body;
-
-    await db('vehicles').insert({
-        name,
-        avatar,
-        bio
-    });
-
-    return response.send();
-});
+const vehiclesControllers = new VehiclesConroller();
+routes.post('/vehicles', vehiclesControllers.create);
 
 //CREATE RESERVATION
-routes.post('/reservations', async (request, response) => {
-
-    const {
-        date,
-        period,
-        staff,
-        vehicle_id
-    } = request.body;
-
-    await db('reservations').insert({
-        date,
-        period,
-        staff,
-        vehicle_id
-    });
-
-    return response.send();
-});
-
+const reservationsController = new ReservationsController();
+routes.post('/reservations', reservationsController.create);
 
 /* APAGAR
 routes.get('/', (request, response) => {
