@@ -7,5 +7,5 @@ app.use(routes);
 
 
 // localhost:3333
-// Aula 2: https://www.youtube.com/watch?v=xK8d5tLptHY (37:17)
+// Aula 2: https://www.youtube.com/watch?v=xK8d5tLptHY (1:03:51)
 app.listen(3333);

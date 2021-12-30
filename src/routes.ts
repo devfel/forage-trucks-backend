@@ -3,7 +3,7 @@ import db from './database/connection';
 
 const routes = express.Router();
 
-
+//CREATE VEHICLE
 routes.post('/vehicles', async (request, response) => {
 
     const {
@@ -21,9 +21,30 @@ routes.post('/vehicles', async (request, response) => {
     return response.send();
 });
 
-// APAGAR
+//CREATE RESERVATION
+routes.post('/reservations', async (request, response) => {
+
+    const {
+        date,
+        period,
+        staff,
+        vehicle_id
+    } = request.body;
+
+    await db('reservations').insert({
+        date,
+        period,
+        staff,
+        vehicle_id
+    });
+
+    return response.send();
+});
+
+
+/* APAGAR
 routes.get('/', (request, response) => {
     return response.json({ message: "Hello World" });
-});
+}); */
 
 export default routes;
