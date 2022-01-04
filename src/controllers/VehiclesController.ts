@@ -24,4 +24,32 @@ export default class VehiclesConroller {
             })
         }
     }
+
+
+    //LIST AVAILABLE VEHICLES FOR A SPECIFIC DATE
+    async index(request: Request, response: Response) {
+        const filters = request.query;
+
+        if (!filters.date) {
+            return response.status(400).json({
+                error: "Missing date parameters to search car availability."
+            });
+        }
+
+        //Join Solution
+        // const vehicles = await db('vehicles')
+        // .where(DATE = DATE)
+        // .join('reservations', 'vehicles.id', '=', 'reservations.vehicle_id')
+        // .MOSTRAR APENAS PERIOD;
+
+
+        const availableVehicles = await db('vehicles')
+            .whereNotExists(function () {
+                this.select('reservations.*')
+                    .from('reservations')
+                    .whereRaw('`reservations`.`vehicle_id` = `vehicles`.`id` and `reservations`.`date` = ??', [Number(filters.date)])
+            })
+
+        return response.json(availableVehicles);
+    }
 }
