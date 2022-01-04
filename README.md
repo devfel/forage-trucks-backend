@@ -1,18 +1,18 @@
 # Backend Routes and Functionalities:
 
 ## Reservations
-- [ToDo] Route to list Reservations {PAGE 1}
-    - filter by specific date, period (morning, afternoon, night), and availability.
-- [Done] Route to create a Reservation.
+- [DONE] Route to list availabe vehicles to create reservations {PAGE 1}
+    - TODO: filter by specific date, period (morning, afternoon, night), and availability.
+- [DONE] Route to create a Reservation.
 
 - [ToDo] Route to return the total of vehicles already Reserved.
-- [ToDo] Route to list all the vehicles reservations. (LendID, Date, VehicleID, PersonID) {PAGE 2}
+- [DONE] Route to list all the vehicles reservations. (LendID, Date, VehicleID, PersonID) {PAGE 2}
 
 ## Users
 - [ToDo] Save in localhost users name.
 
 ## Vehicle
-- [Done] Route to create a new Vehicle.
+- [DONE] Route to create a new Vehicle.
 
 
 ## ----------- NOT INCLIDED -----------
@@ -28,3 +28,5 @@
 - [F] Route to update a User
 - [F] Route to list all Users
 
+## ISSUES
+- ./src/database/migrations/01_create_reservations.ts - line .defaultTo(knex.raw('CURRENT_TIMESTAMP')) is setting a timestamp 5 hours later than what is the users real time due to Eastern Time Zone being for Florida state being GMT-5. 

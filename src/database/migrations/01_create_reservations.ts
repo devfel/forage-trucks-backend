@@ -17,7 +17,7 @@ export async function up(knex: Knex) {
 
         //Log
         table.timestamp('created_at')
-            .defaultTo(Date.now())
+            .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
             .notNullable();
     });
 }
