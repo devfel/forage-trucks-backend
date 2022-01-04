@@ -26,4 +26,13 @@ export default class ReservationsController {
             })
         }
     }
+
+    //LIST ALL RESERVATIONS
+    async index(request: Request, response: Response) {
+        const reservations = await db('reservations')
+            .innerJoin('vehicles', 'vehicles.id', '=', 'reservations.vehicle_id')
+            .select('reservations.id', 'reservations.date', 'reservations.staff', 'reservations.created_at', 'reservations.vehicle_id', 'vehicles.name', 'vehicles.avatar', 'vehicles.bio')
+
+        return response.json(reservations);
+    }
 }
