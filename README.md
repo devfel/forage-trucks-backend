@@ -12,7 +12,7 @@
 - [ToDo] Save in localhost users name.
 
 ## Vehicle
-- [Done] Route to create a new Vehicle
+- [Done] Route to create a new Vehicle.
 
 
 ## ----------- NOT INCLIDED -----------
