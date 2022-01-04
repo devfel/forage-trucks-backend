@@ -19,5 +19,7 @@ const reservationsController = new ReservationsController();
 routes.post('/reservations', reservationsController.create);
 //LIST ALL RESERVATIONS
 routes.get('/reservations', reservationsController.index);
+//COUNT ALL RESERVATIONS
+routes.get('/totalReservations', reservationsController.count);
 
 export default routes;

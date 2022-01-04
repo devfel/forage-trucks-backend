@@ -35,4 +35,13 @@ export default class ReservationsController {
 
         return response.json(reservations);
     }
+
+    //COUNT ALL RESERVATIONS
+    async count(request: Request, response: Response) {
+        const totalReservations = await db('reservations')
+            .count('* as total');
+
+        const { total } = totalReservations[0];
+        return response.json(total);
+    }
 }
