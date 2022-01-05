@@ -30,3 +30,9 @@
 
 ## ISSUES
 - ./src/database/migrations/01_create_reservations.ts - line .defaultTo(knex.raw('CURRENT_TIMESTAMP')) is setting a timestamp 5 hours later than what is the users real time due to Eastern Time Zone being for Florida state being GMT-5. 
+
+// Aula 1: https://www.youtube.com/watch?v=ptcJSCuOa3Q (Finalizado)
+// Aula 2: https://www.youtube.com/watch?v=xK8d5tLptHY (Finalizado)
+// Aula 3: https://www.youtube.com/watch?v=Vbc1g7VD9oA
+// Aula 4: https://www.youtube.com/watch?v=I1qiKIjW_p0
+// Aula 5: https://www.youtube.com/watch?v=LlWCSX9paW4
