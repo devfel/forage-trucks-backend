@@ -33,6 +33,6 @@
 
 // Aula 1: https://www.youtube.com/watch?v=ptcJSCuOa3Q (Finalizado)
 // Aula 2: https://www.youtube.com/watch?v=xK8d5tLptHY (Finalizado)
-// Aula 3: https://www.youtube.com/watch?v=Vbc1g7VD9oA
+// Aula 3: https://www.youtube.com/watch?v=Vbc1g7VD9oA (Finalizado)
 // Aula 4: https://www.youtube.com/watch?v=I1qiKIjW_p0
 // Aula 5: https://www.youtube.com/watch?v=LlWCSX9paW4
