@@ -42,13 +42,23 @@ export default class VehiclesConroller {
         // .join('reservations', 'vehicles.id', '=', 'reservations.vehicle_id')
         // .MOSTRAR APENAS PERIOD;
 
+        // //USING SQLITE3
+        // const availableVehicles = await db('vehicles')
+        //     .whereNotExists(function () {
+        //         this.select('reservations.*')
+        //             .from('reservations')
+        //             .whereRaw('`reservations`.`vehicle_id` = `vehicles`.`id` and `reservations`.`date` = ??', [Number(filters.date)])
+        //     })
 
+        //USING POSTGRES
         const availableVehicles = await db('vehicles')
             .whereNotExists(function () {
                 this.select('reservations.*')
                     .from('reservations')
-                    .whereRaw('`reservations`.`vehicle_id` = `vehicles`.`id` and `reservations`.`date` = ??', [Number(filters.date)])
+                    .whereRaw('reservations.vehicle_id = vehicles.id and reservations.date = ??', [Number(filters.date)])
             })
+
+
 
         return response.json(availableVehicles);
     }
