@@ -13,13 +13,18 @@ import path from 'path';
 //USING POSTGRES
 const db = knex({
     client: 'postgres',
-    connection: {
-        host: 'localhost',
-        port: 5432,
-        user: 'postgres',
-        password: 'docker',
-        database: 'forage_trucks_postgresdb'
-    }
+
+    //PRODUCTION
+    connection: process.env.DATABASE_URL
+
+    // //DEV
+    // connection: {
+    //     host: 'localhost',
+    //     port: 5432,
+    //     user: 'postgres',
+    //     password: 'docker',
+    //     database: 'forage_trucks_postgresdb'
+    // }
 });
 
 
