@@ -32,6 +32,10 @@ module.exports = {
     //     directory: path.resolve(__dirname, 'src', 'database', 'migrations')
     // }
 
+    ssl: {
+        rejectUnauthorized: false
+    },
+
     migrations: {
         directory: __dirname + '/src/database/migrations'
     }
