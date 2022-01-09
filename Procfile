@@ -1,1 +1,1 @@
-web: knex migrate:rollback && knex migrate:latest && node ./src/server.ts
+web: knex --knexfile knexfile.ts migrate:rollback && knex --knexfile knexfile.ts migrate:latest && node ./dist/server.js
