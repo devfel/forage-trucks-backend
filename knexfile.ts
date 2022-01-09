@@ -33,6 +33,6 @@ module.exports = {
     // }
 
     migrations: {
-        directory: __dirname + '/src/database/migrations',
+        directory: __dirname + '/src/database/migrations'
     }
 };
