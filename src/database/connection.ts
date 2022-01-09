@@ -12,7 +12,7 @@ import path from 'path';
 
 //USING POSTGRES
 const db = knex({
-    client: 'pg',
+    client: 'postgres',
 
     //PRODUCTION
     connection: process.env.DATABASE_URL

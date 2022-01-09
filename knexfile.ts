@@ -14,7 +14,7 @@
 
 //USING POSTGRES
 module.exports = {
-    client: 'pg',
+    client: 'postgres',
 
     //PRODUCTION
     connection: process.env.DATABASE_URL,
