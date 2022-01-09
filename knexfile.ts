@@ -1,4 +1,4 @@
-import path from 'path';
+//import path from 'path';
 
 // //USING SQLITE3
 // module.exports = {
@@ -28,7 +28,11 @@ module.exports = {
     //     database: 'forage_trucks_postgresdb'
     // },
 
+    // migrations: {
+    //     directory: path.resolve(__dirname, 'src', 'database', 'migrations')
+    // }
+
     migrations: {
-        directory: path.resolve(__dirname, 'src', 'database', 'migrations')
+        directory: __dirname + '/src/database/migrations',
     }
 };
