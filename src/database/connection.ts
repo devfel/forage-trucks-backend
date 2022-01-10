@@ -4,7 +4,7 @@ import knex from "knex";
 const db = knex({
     client: 'postgres',
 
-    //PRODUCTION
+    //PRODUCTION Connection
     connection: process.env.DATABASE_URL
 });
 
