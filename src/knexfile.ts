@@ -6,6 +6,6 @@ module.exports = {
     connection: process.env.DATABASE_URL,
 
     migrations: {
-        directory: __dirname + '/src/database/migrations'
+        directory: __dirname + '/database/migrations'
     }
 };
