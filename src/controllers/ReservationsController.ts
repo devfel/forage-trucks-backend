@@ -16,12 +16,17 @@ export default class ReservationsController {
         } = request.body;
 
         try {
-            const searchReservation = await db('vehicles')
+            /*const searchReservation = await db('vehicles')
                 .whereExists(function () {
                     this.select('reservations.*')
                         .from('reservations')
                         .whereRaw('reservations.vehicle_id = ?? and reservations.date = ??', [vehicle_id, date])
                 })
+            */
+
+            const searchReservation = await db('reservations')
+                .where('vehicle_id', vehicle_id)
+                .where('date', date);
 
             console.log("VEHICLE RESERVED FOR DATE: " + searchReservation);
             console.log(testTruthyFalsy(searchReservation));
