@@ -26,7 +26,7 @@ export default class ReservationsController {
                 .where('date', date);
 
             //If the car is NOT already reserved for that date.    
-            if (searchReservation[0]) {
+            if (!searchReservation[0]) {
                 await db('reservations').insert({
                     date,
                     period,
