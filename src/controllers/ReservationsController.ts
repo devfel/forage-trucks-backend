@@ -12,17 +12,33 @@ export default class ReservationsController {
         } = request.body;
 
         try {
-            await db('reservations').insert({
-                date,
-                period,
-                staff,
-                vehicle_id
-            });
+            const searchReservation = await db('vehicles')
+                .whereExists(function () {
+                    this.select('reservations.*')
+                        .from('reservations')
+                        .whereRaw('reservations.vehicle_id = ?? and reservations.date = ??', [vehicle_id, date])
+                })
 
-            return response.status(201).send();
+            console.log("VEHICLE RESERVED FOR DATE: " + searchReservation);
+            if (searchReservation === null) {
+
+                await db('reservations').insert({
+                    date,
+                    period,
+                    staff,
+                    vehicle_id
+                });
+
+                return response.status(201).send();
+            }
+            else {
+                return response.status(400).json({
+                    error: "This vehicle was just reserved by someone else."
+                })
+            }
         } catch (error) {
             return response.status(400).json({
-                error: "Unexpected Error in the Database"
+                error: "Unexpected Error in the Database."
             })
         }
     }
