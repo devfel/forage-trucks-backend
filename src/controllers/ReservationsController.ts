@@ -28,9 +28,9 @@ export default class ReservationsController {
                 .where('vehicle_id', vehicle_id)
                 .where('date', date);
 
-            console.log("VEHICLE RESERVED FOR DATE: " + searchReservation);
-            console.log(testTruthyFalsy(searchReservation));
-            if (!searchReservation) {
+            console.log("VEHICLE RESERVED FOR DATE: " + searchReservation[0]);
+            console.log(testTruthyFalsy(searchReservation[0]));
+            if (searchReservation[0]) {
 
                 await db('reservations').insert({
                     date,
