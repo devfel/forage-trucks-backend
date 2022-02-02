@@ -20,7 +20,7 @@ export default class ReservationsController {
                 })
 
             console.log("VEHICLE RESERVED FOR DATE: " + searchReservation);
-            if (searchReservation === null) {
+            if (searchReservation !== null) {
 
                 await db('reservations').insert({
                     date,
