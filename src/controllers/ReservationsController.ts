@@ -1,6 +1,10 @@
 import db from '../database/connection';
 import { Request, Response } from 'express'
 
+function testTruthyFalsy(val: any) {
+    return val ? console.log('truthy') : console.log('falsy');
+}
+
 export default class ReservationsController {
     //CREATE RESERVATION
     async create(request: Request, response: Response) {
@@ -20,7 +24,8 @@ export default class ReservationsController {
                 })
 
             console.log("VEHICLE RESERVED FOR DATE: " + searchReservation);
-            if (searchReservation) {
+            console.log(testTruthyFalsy(searchReservation));
+            if (!searchReservation) {
 
                 await db('reservations').insert({
                     date,
