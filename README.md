@@ -15,7 +15,7 @@
 - [DONE] Route to create a new Vehicle.
 
 
-## ----------- NOT INCLIDED -----------
+## ----------- NOT INCLUDED -----------
 ## Vehicle
 - [F] Route to delete a Vehicle
 - [F] Route to update a Vehicle
