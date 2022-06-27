@@ -11,6 +11,7 @@ export default class ReservationsController {
             vehicle_id
         } = request.body;
 
+        console.log("TESTE 1");
         try {
             //Search Car/Date Reservation
             /*const searchReservation = await db('vehicles')
@@ -33,6 +34,9 @@ export default class ReservationsController {
                 staff,
                 vehicle_id
             });
+
+
+            console.log("TESTE 2");
 
             return response.status(201).send();
             //}
