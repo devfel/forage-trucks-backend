@@ -26,22 +26,22 @@ export default class ReservationsController {
                 .where('date', date);
 
             //If the car is NOT already reserved for that date.    
-            if (!searchReservation[0]) {
-                await db('reservations').insert({
-                    date,
-                    period,
-                    staff,
-                    vehicle_id
-                });
+            //if (!searchReservation[0]) {
+            await db('reservations').insert({
+                date,
+                period,
+                staff,
+                vehicle_id
+            });
 
-                return response.status(201).send();
-            }
-            //If the car is NOT already reserved for that date.    
-            else {
-                return response.status(400).json({
-                    error: "This vehicle was just reserved by someone else."
-                })
-            }
+            return response.status(201).send();
+            //}
+            // //If the car is NOT already reserved for that date.    
+            // else {
+            //     return response.status(400).json({
+            //         error: "This vehicle was just reserved by someone else."
+            //     })
+            // }
         }
         //Connection problem with Database or other unexpected issue.
         catch (error) {
