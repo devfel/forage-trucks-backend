@@ -11,7 +11,6 @@ export default class ReservationsController {
             vehicle_id
         } = request.body;
 
-        console.log("TESTE 1");
         try {
             //Search Car/Date Reservation
             /*const searchReservation = await db('vehicles')
@@ -22,9 +21,9 @@ export default class ReservationsController {
                 })
             */
             //Search Car/Date Reservation - Other Way of Doing the Search.
-            const searchReservation = await db('reservations')
-                .where('vehicle_id', vehicle_id)
-                .where('date', date);
+            // const searchReservation = await db('reservations')
+            //     .where('vehicle_id', vehicle_id)
+            //     .where('date', date);
 
             //If the car is NOT already reserved for that date.    
             //if (!searchReservation[0]) {
@@ -35,8 +34,6 @@ export default class ReservationsController {
                 vehicle_id
             });
 
-
-            console.log("TESTE 2");
 
             return response.status(201).send();
             //}
@@ -59,7 +56,7 @@ export default class ReservationsController {
     async index(request: Request, response: Response) {
         const reservations = await db('reservations')
             .innerJoin('vehicles', 'vehicles.id', '=', 'reservations.vehicle_id')
-            .select('reservations.id', 'reservations.date', 'reservations.staff', 'reservations.created_at', 'reservations.vehicle_id', 'vehicles.name', 'vehicles.avatar', 'vehicles.bio')
+            .select('reservations.id', 'reservations.date', 'reservations.staff', 'reservations.period', 'reservations.created_at', 'reservations.vehicle_id', 'vehicles.name', 'vehicles.avatar', 'vehicles.bio')
 
         return response.json(reservations);
     }
