@@ -13,6 +13,7 @@ export async function up(knex: Knex) {
 
     //Log
     table.timestamp("created_at").defaultTo(knex.raw("CURRENT_TIMESTAMP")).notNullable();
+    console.log("Migrations: Reservation Table Created.");
   });
 }
 

@@ -8,6 +8,7 @@ export async function up(knex: Knex) {
     table.string("avatar").notNullable();
     table.string("bio").notNullable(); //Bio is Color, Tag, Year and other info.
     //For future a new boolean field that shows if the vehicle is available on not for deleting porpuses.
+    console.log("Migrations: Vehicle Table Created.");
   });
 }
 
