@@ -1,3 +1,5 @@
+// ./src/controllers/ReservationsController.ts
+
 import db from "../database/connection";
 import { Request, Response } from "express";
 
@@ -7,21 +9,6 @@ export default class ReservationsController {
     const { date, period, staff, vehicle_id } = request.body;
 
     try {
-      //Search Car/Date Reservation
-      /*const searchReservation = await db('vehicles')
-                .whereExists(function () {
-                    this.select('reservations.*')
-                        .from('reservations')
-                        .whereRaw('reservations.vehicle_id = ?? and reservations.date = ??', [vehicle_id, date])
-                })
-            */
-      //Search Car/Date Reservation - Other Way of Doing the Search.
-      // const searchReservation = await db('reservations')
-      //     .where('vehicle_id', vehicle_id)
-      //     .where('date', date);
-
-      //If the car is NOT already reserved for that date.
-      //if (!searchReservation[0]) {
       await db("reservations").insert({
         date,
         period,
@@ -30,13 +17,6 @@ export default class ReservationsController {
       });
 
       return response.status(201).send();
-      //}
-      // //If the car is NOT already reserved for that date.
-      // else {
-      //     return response.status(400).json({
-      //         error: "This vehicle was just reserved by someone else."
-      //     })
-      // }
     } catch (error) {
       //Connection problem with Database or other unexpected issue.
       return response.status(400).json({
