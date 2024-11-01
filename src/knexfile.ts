@@ -2,11 +2,10 @@
 
 //USING POSTGRES
 
-//PRODUCTION
+//PRODUCTION Adaptable.io
 // module.exports = {
 //     client: 'postgres',
 
-//     //PRODUCTION
 //     connection: process.env.DATABASE_URL,
 
 //     migrations: {
