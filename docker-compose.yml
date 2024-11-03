@@ -29,6 +29,19 @@ services:
     command: >
       sh -c "npx ts-node ./node_modules/knex/bin/cli.js migrate:latest --knexfile ./src/knexfile.ts && npm start"
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      - app
+    networks:
+      - app-network
+
 volumes:
   db_data:
 
